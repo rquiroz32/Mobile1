@@ -1,13 +1,20 @@
 const mysql = require ("mysql");
 
-const connection = mysql.createConnection({
+const connection 
+if (process.env.JAWSDB_URL){
+  connection = mysql.createConnection(process.env.JAWSDB_URL);  
+}else{
+  
+connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "password",
   database: "testDB",
   Port: 3306
 });
+}
 
+//Make coonnection
 connection.connect((err, response)=>{
   
   if (err){
@@ -24,5 +31,5 @@ connection.connect((err, response)=>{
 
 
 
-
+// Export Connection
 module.export = connection
