@@ -41,6 +41,12 @@ $(document).ready(function () {
 
     $("#burgerSubmitBtn").on("click", function(event){
         event.preventDefault();
+        let _burgerVal = $("#burgerInput").val().trim()
+        if( _burgerVal === null || _burgerVal===''){
+            alert("PLEASE ENTER IN A NAME FOR YOUR BURGER")
+            
+        }
+        else{
         let newBurger = {burger_name: $("#burgerInput").val().trim()}
         console.log("the value of newBurger is " + JSON.stringify(newBurger))
 
@@ -54,7 +60,7 @@ $(document).ready(function () {
             location.reload();
         })
 
-
+    }
     }); //closes burger submit button on click
 
     $(document).on("click", ".devourBtn", function(event){
