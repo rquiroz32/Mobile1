@@ -4,12 +4,18 @@ const path = require('path')
 const burger = require('../models/burgers')
 
 router.get('/', function (req, res){
-    res.sendFFile(path.join(__dirname, 'public/index.html'))
+    res.sendFile(path.join(__dirname, '../public/index.html'))
+});
+
+router.get('/burgers', function (req, res) {
+    burger.selectAll(function (data) {
+        res.json({ burgers: data })
+    })
 });
 
 router.post('/burgers', function (req, res) {
-    burger.selectAll(function (data) {
-        res.json({ cats: data })
+    burger.insertOne('burger_name', 'devoured', function (data) {
+        res.json({ burgers: data })
     })
 });
 

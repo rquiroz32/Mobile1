@@ -1,15 +1,19 @@
-const mysql = require ("mysql");
+const mysql = require("mysql");
 
-const connection 
+//using Var so I can create the variable without declaring a value
+var connection;
+
 if (process.env.JAWSDB_URL){
   connection = mysql.createConnection(process.env.JAWSDB_URL);  
-}else{
+}
+else
+{
   
 connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "password",
-  database: "testDB",
+  database: "burgers_db",
   Port: 3306
 });
 }
@@ -29,7 +33,5 @@ connection.connect((err, response)=>{
 
 
 
-
-
 // Export Connection
-module.export = connection
+module.exports = connection
