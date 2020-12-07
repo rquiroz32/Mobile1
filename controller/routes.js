@@ -1,3 +1,4 @@
+const { json } = require('body-parser');
 const express = require('express');
 const router = express.Router();
 const path = require('path')
@@ -14,7 +15,8 @@ router.get('/burgers', function (req, res) {
 });
 
 router.post('/burgers', function (req, res) {
-    burger.insertOne('burger_name', 'devoured', function (data) {
+    console.log("value of req.body is " + JSON.stringify(req.body));
+    burger.insertOne(['burger_name, devoured'],[JSON.stringify(req.body.burger_name), "0"], function (data) {
         res.json({ burgers: data })
     })
 });

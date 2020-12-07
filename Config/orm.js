@@ -23,7 +23,8 @@ const orm = {
     })
   },
   insertOne: function(table, cols, vals, cb) {
-    var queryString = "INSERT INTO " + table;
+
+    /*var queryString = "INSERT INTO " + table;
 
     queryString += " (";
     queryString += cols.toString();
@@ -33,6 +34,9 @@ const orm = {
     queryString += ") ";
 
     console.log(queryString);
+    */
+    var test = cols.toString();
+    var queryString = `INSERT INTO ${table} (${test}) VALUES (${vals})`
 
     connection.query(queryString, vals, function(err, result) {
       if (err) {
