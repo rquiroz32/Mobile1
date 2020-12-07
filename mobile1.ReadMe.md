@@ -10,7 +10,7 @@ An assignment for my coding bootcamp that is designed to dynamically add and rem
 *[Testing](#Testing)
 *[Questions](#Questions)
 *[License](#License)
-*[LinktoApp](#Link)
+*[LinktoApp](#Link to Application)
 
 
 
@@ -35,5 +35,5 @@ try entering in null values
 This application is covered under the GNU GPL v3 license 
 
 
-## Link
+## Link to Application
 * https://immense-forest-91683.herokuapp.com/
