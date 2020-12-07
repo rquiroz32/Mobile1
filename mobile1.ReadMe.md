@@ -10,7 +10,7 @@ An assignment for my coding bootcamp that is designed to dynamically add and rem
 *[Testing](#Testing)
 *[Questions](#Questions)
 *[License](#License)
-*[Link to Deployed App on Heroku] (#Link to Deployed App on Heroku)
+*[Link to Deployed App on Heroku](#Link to Deployed App on Heroku)
 
 
 ## Installation
