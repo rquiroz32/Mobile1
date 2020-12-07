@@ -30,7 +30,7 @@ $(document).ready(function () {
 
 
                 var new_elem = `<li id= "#${burgers[i].burger_name}" data-id ="${burgers[i].id}" data-devoured ="${devoured}">
-            ${burgers[i].burger_name} <button class = "btn btn-primary devourBtn" data-id ="${burgers[i].id}">DEVOUR</button>
+            ${burgers[i].burger_name} <button class = "btn btn-primary devourBtn" data-id ="${burgers[i].id}" data-devourState ="${devoured}">DEVOUR</button>
              </li>`
                 devourList.append(new_elem);
             }
@@ -60,6 +60,24 @@ $(document).ready(function () {
     $(document).on("click", ".devourBtn", function(event){
         var btnId = $(this).data("id")
         console.log(btnId)
+        //var newDevour = $(this).attr("data-devourState", "true")
+        var newDevour = $(this).data("devourState") ===true;
+        console.warn("devour state now set to " + newDevour)
+        var newDevouredState = {devoured:  true}
+
+        
+
+      // Send the PUT request.
+    $.ajax("/burgers/" + btnId, {
+        type: "PUT",
+        data: JSON.stringify(newDevouredState),
+        dataType:'json',
+        contentType: 'application/json'
+      }).then(function() {
+        console.log("changed devour state to", newDevour);
+        // Reload the page to get the updated list
+        location.reload();
+      });
         
     })
 
@@ -71,7 +89,7 @@ $(document).ready(function () {
     $.ajax("/burgers/" + btnId, {
         type: "DELETE"
       }).then(function() {
-        console.log("deleted cat", btnId);
+        console.log("deleted burger", btnId);
         // Reload the page to get the updated list
         location.reload();
       });
