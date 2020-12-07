@@ -10,8 +10,8 @@ An assignment for my coding bootcamp that is designed to dynamically add and rem
 *[Testing](#Testing)
 *[Questions](#Questions)
 *[License](#License)
-*[Link](#Link)
-*[LinktoApp])(#link to Deployed Appp on Heroku)
+*[LinktoApp](#Link)
+
 
 
 
@@ -34,7 +34,6 @@ try entering in null values
 ## License
 This application is covered under the GNU GPL v3 license 
 
-## Link to Deployed App on Heroku
-* https://immense-forest-91683.herokuapp.com/
 
 ## Link
+* https://immense-forest-91683.herokuapp.com/
