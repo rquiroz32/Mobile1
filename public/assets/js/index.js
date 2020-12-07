@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+    //on load of the page make a get request to burgers to populate the page
     $.ajax('/burgers', {
         type: "GET"
     }).then(function (data) {
@@ -21,16 +21,16 @@ $(document).ready(function () {
             //check if devoured flag is sett to true, if so add to the deleteList
             if (devoured === true) {
 
-                var new_elem = `<li id= "#${burgers[i].burger_name}" data-id ="${burgers[i].id}" data-devoured ="${devoured}">
-            ${burgers[i].burger_name} <button class = "btn btn-danger deleteBtn" data-id ="${burgers[i].id}">DELETE</button>
+                var new_elem = `<li id= "#${burgers[i].burger_name}" class = "mb-md-3" data-id ="${burgers[i].id}" data-devoured ="${devoured}">
+            ${burgers[i].burger_name} <button class = "ml-md-5 btn btn-danger deleteBtn" data-id ="${burgers[i].id}">DELETE</button>
              </li>`
                 deleteList.append(new_elem);
             }
             else {
 
 
-                var new_elem = `<li id= "#${burgers[i].burger_name}" data-id ="${burgers[i].id}" data-devoured ="${devoured}">
-            ${burgers[i].burger_name} <button class = "btn btn-primary devourBtn" data-id ="${burgers[i].id}" data-devourState ="${devoured}">DEVOUR</button>
+                var new_elem = `<li id= "#${burgers[i].burger_name}" class = "mb-md-3" data-id ="${burgers[i].id}" data-devoured ="${devoured}">
+            ${burgers[i].burger_name} <button class = "ml-md-5 btn btn-primary devourBtn" data-id ="${burgers[i].id}" data-devourState ="${devoured}">DEVOUR</button>
              </li>`
                 devourList.append(new_elem);
             }
@@ -39,6 +39,7 @@ $(document).ready(function () {
 
     });//closes get request for burgers
 
+    // on click of submit check for null/empty strings, if input is valid add to the devour list and make post request to add to db
     $("#burgerSubmitBtn").on("click", function(event){
         event.preventDefault();
         let _burgerVal = $("#burgerInput").val().trim()
@@ -63,6 +64,8 @@ $(document).ready(function () {
     }
     }); //closes burger submit button on click
 
+
+    // on click of devour button, toggle the data-devourstate attribute and make a put request to the database
     $(document).on("click", ".devourBtn", function(event){
         var btnId = $(this).data("id")
         console.log(btnId)
@@ -87,6 +90,7 @@ $(document).ready(function () {
         
     })
 
+    // on click of delete button, delete from database and reload the page.
     $(document).on("click", ".deleteBtn", function(event){
         var btnId = $(this).data("id")
         console.log(btnId)
@@ -101,7 +105,7 @@ $(document).ready(function () {
       });
         
         
-    })
+    })// closes delete ajax call
 
 
 
