@@ -59,6 +59,22 @@ $(document).ready(function () {
 
     $(document).on("click", ".devourBtn", function(event){
         var btnId = $(this).data("id")
+        console.log(btnId)
+        
+    })
+
+    $(document).on("click", ".deleteBtn", function(event){
+        var btnId = $(this).data("id")
+        console.log(btnId)
+
+        // Send the DELETE request.
+    $.ajax("/burgers/" + btnId, {
+        type: "DELETE"
+      }).then(function() {
+        console.log("deleted cat", btnId);
+        // Reload the page to get the updated list
+        location.reload();
+      });
         
         
     })
